@@ -1,1 +1,1 @@
-web: gunicorn jessi.wsgi
+web: gunicorn rank.wsgi

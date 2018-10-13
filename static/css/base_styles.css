@@ -1,0 +1,9 @@
+loginModal-body{
+   text-align: center;
+   height: auto;
+}
+@media (min-width: 768px){
+#loginModal-dialog {
+   width: auto;
+   max-width: 50%;
+}
