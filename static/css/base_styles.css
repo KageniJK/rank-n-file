@@ -7,3 +7,7 @@ loginModal-body{
    width: auto;
    max-width: 50%;
 }
+
+.jumbotron {
+  height: 400px;
+}

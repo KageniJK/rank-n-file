@@ -1,18 +1,51 @@
+{% extends 'base.html' %}
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>rank-n-file</title>
   {% block styles %}
-    {% bootstrap_css %}
+  {% bootstrap_css %}
   {% endblock %}
 </head>
+{% block content %}
 <body class="bod">
-  {% include 'navbar.html'%}
-  <h1 class="text-center">rank-n-file</h1>
-  
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-center">Project of the week</h1>
+      <p class="lead">This is where the project with the highest average score will be displayed.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Top 10</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Newest</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Random</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">these will be</li>
+          <li class="list-group-item">a list of other projects</li>
+          <li class="list-group-item">that have been selected by criteria above(navtabs)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </body>
+{% endblock %}
 </html>
