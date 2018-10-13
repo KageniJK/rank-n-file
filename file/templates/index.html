@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'css/base_styles.css' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>rank-n-file</title>
@@ -17,11 +19,11 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4 text-center">Project of the week</h1>
-      <p class="lead">This is where the project with the highest average score will be displayed.</p>
+      <p class="lead text-center">This is where the project with the highest average score will be displayed.</p>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container mb-5">
     <div class="card text-center">
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
