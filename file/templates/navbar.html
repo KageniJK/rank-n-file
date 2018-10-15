@@ -20,7 +20,8 @@
         <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
     </form>
         <button class="btn btn-outline-primary mx-2" type="button" id="newProject">Post Project</button>
-        <a class="btn btn-sm btn-outline-success mx-2" role="button" id="login" href="/accounts/login" aria-pressed="true">Login</a>
+        <button class="btn btn-sm btn-outline-success mx-2" role="button" id="login" data-toggle="modal" data-target="#loginModal"
+           aria-pressed="true">Login</button>
     </div>
   </nav>
 
@@ -36,11 +37,30 @@
     </button>
         </div>
         <div class="modal-body">
+          <form  action="{% url 'auth_login'%}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Login">
+            </div>
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}">
+
+          </form>
+          <hr>
+          Dont have an account <a href="/accounts/register">Register</a>
+
+        </div>
 
         </div>
       </div>
     </div>
-  </div>
 
 
   {% block scripts %}
