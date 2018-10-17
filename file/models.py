@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 class Profile(models.Model):
     """
     Extends the basic Django user model
