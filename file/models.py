@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class Profile(models.Model):
     """
     Extends the basic Django user model
@@ -23,6 +22,12 @@ class Project(models.Model):
     link = models.URLField()
     description = models.CharField(max_length=250)
     screenshot = models.ImageField(upload_to='screengrabs/')
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def get_recent(cls):
+        all = cls.objects.all()
+        return all
 
 
 class Rating(models.Model):

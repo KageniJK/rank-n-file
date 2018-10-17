@@ -15,3 +15,8 @@ loginModal-body{
 .footer {
   background-color: #e8ebee;
 }
+
+#projIndex {
+    width: 100px;
+    height: 100px;
+}

@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <meta charset="UTF-8">
@@ -27,23 +24,24 @@
   <div class="container mb-5">
     <div class="card text-center">
       <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Top 10</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Newest</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Random</a>
-          </li>
-        </ul>
+        Most Recent 10
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">these will be</li>
-          <li class="list-group-item">a list of other projects</li>
-          <li class="list-group-item">that have been selected by criteria above(navtabs)</li>
+          {% for project in recent %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4 col-sm-4" >
+                <img src="{{project.screenshot.url}}" alt="image" id="projIndex">
+              </div>
+              <div class="col-md-8 row">
+                <p class="col-md-12">{{project.name}}</p>
+                <p class="col-md-12">{{project.description}}</p>
+                <p class="col-md-12">posted by: {{project.user.username}} {{project.date_posted|timesince}} ago</p>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -51,4 +49,3 @@
 
 </body>
 {% endblock %}
-</html>
