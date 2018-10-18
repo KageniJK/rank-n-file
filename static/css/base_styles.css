@@ -25,3 +25,7 @@ loginModal-body{
     max-width: 400px;
     max-height: 500px;
 }
+
+.form-inline {
+    padding: 5px;
+}

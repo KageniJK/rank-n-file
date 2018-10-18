@@ -38,10 +38,18 @@ class Rating(models.Model):
     """
     class that defines the votes
     """
+    # sets up the voting list
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
+    design = models.IntegerField(choices=RATING_CHOICES, default=0)
+    usability = models.IntegerField(choices=RATING_CHOICES, default=0)
+    content = models.IntegerField(choices=RATING_CHOICES, default=0)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default=1)
 

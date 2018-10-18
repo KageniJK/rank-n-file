@@ -26,9 +26,16 @@
             <p class="col-md-12">{{project.description}}</p>
             <p class="col-md-12">posted by: {{project.user.username}} {{project.date_posted|timesince}} ago</p>
         </div>
-
+        {% if user.is_authenticated %}
+        <form action="{% url 'project' project.id %}" method="post" class="form-inline p-5">
+            {% csrf_token %}
+            {% bootstrap_form vote_form %}
+            <input type="submit" class="btn btn-primary btn-sm" value="submit">
+        </form>
+        {% endif %}
     </div>
     {% else%}
     <div class="container"> <h1 class="text-center">There is no such project</h1></div>
     {% endif %}
+
 {% endblock %}

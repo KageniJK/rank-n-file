@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostProjectForm
+from .forms import PostProjectForm, VoteForm
 from .models import Project
 
 # Create your views here.
@@ -30,5 +30,14 @@ def new_project(request):
 def one_project(request, id):
     user = request.user
     project = Project.get_by_id(id)
-
-    return render(request, 'project.html', {'user': user, 'project': project})
+    if request.method == 'POST':
+        vote_form = VoteForm(request.POST, request.FILES)
+        if vote_form.is_valid():
+            rating = vote_form.save(commit=False)
+            rating.user = request.user
+            rating.project = project
+            rating.save()
+            return redirect('project', project.id)
+    else:
+        vote_form=VoteForm()
+    return render(request, 'project.html', {'user': user, 'project': project, 'vote_form':vote_form})
