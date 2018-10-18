@@ -20,3 +20,8 @@ loginModal-body{
     width: 100px;
     height: 100px;
 }
+
+#projectImage img {
+    max-width: 400px;
+    max-height: 500px;
+}

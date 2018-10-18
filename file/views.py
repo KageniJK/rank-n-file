@@ -25,3 +25,10 @@ def new_project(request):
         upload_form=PostProjectForm()
 
     return render(request, 'new_project.html', {'form':upload_form, 'user': user})
+
+
+def one_project(request, id):
+    user = request.user
+    project = Project.get_by_id(id)
+
+    return render(request, 'project.html', {'user': user, 'project': project})

@@ -29,6 +29,10 @@ class Project(models.Model):
         all = cls.objects.all()
         return all
 
+    @classmethod
+    def get_by_id(cls,id):
+        return cls.objects.get(id=id)
+
 
 class Rating(models.Model):
     """
@@ -36,3 +40,8 @@ class Rating(models.Model):
     """
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    design = models.IntegerField(default=0)
+    usability = models.IntegerField(default=0)
+    content = models.IntegerField(default=0)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, default=1)
+
